@@ -231,6 +231,7 @@ public class Main {
     public static double plusMethod(double x, double y) {
         return x + y;
 //Recursion is used to add a sequent range of numbers
+
     }
     public static int sum(int k) {
         if (k > 0) {
