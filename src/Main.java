@@ -46,6 +46,7 @@ public class Main {
 //  byte data type can store whole numbers from -128 to 127
         byte oreo = 123;
         System.out.println(oreo);
+
 //  short data type can store whole numbers from -32768 to 32767
         short jimjam = 9883;
         System.out.println(jimjam);
@@ -130,16 +131,16 @@ public class Main {
         System.out.println(Math.random() * 201); // now we have set the random value to be printed from 0.0 to 200
 //  if, else, else if
         int day = 31;
-        if (day < 10){
+        if (day < 10) {
             System.out.println("Beginning of the month.");
         } else if (day < 29) {
             System.out.println("Mid of the month.");
         } else {
-                System.out.println("End of the month");
-            }
+            System.out.println("End of the month");
+        }
 //  Switch
-       int week = 2;
-        switch(week){
+        int week = 2;
+        switch (week) {
             case 1:
                 System.out.println("Monday");
                 break;
@@ -187,16 +188,55 @@ public class Main {
             System.out.println(k);
         }
 //  Arrays - Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
-    String[] bikes = {"Yamaha", "Bajaj", "Husqvarna", "BMW"};
-    int[] myFavNum = {3, 5 , 7};
+        String[] bikes = {"Yamaha", "Bajaj", "Husqvarna", "BMW"};
+        int[] myFavNum = {3, 5, 7};
         System.out.println(bikes[2]);
-        bikes[2] = "Duke"; //change the value in array by mentioning the position in array
+        bikes[2] = "Duke"; //change the value in array by mentioning
+        // the position in array
         System.out.println(bikes[2]);
         System.out.println(myFavNum[1]);
         myFavNum[1] = 2; //change the value in array by mentioning the position in array - same as in string
         System.out.println(myFavNum[1]);
 //  Loop with Arrays
         for (int i = 1; i < bikes.length; i++) {
-            System.out.println(bikes[i]);}
+            System.out.println(bikes[i]);
+        }
+        myMethod();  //method should be called in main class, Hence jumped out of the main method
+        myMethod("Eswar", 20);
+        myMethod("Henry", 45);
+        secondMethod();
+        secondMethod("Rolls Royce", 500000000L);
+        int givenNo1 = plusMethod(3, 9);
+        double givenNo2 = plusMethod(8.6, 5.2);
+        System.out.println("the sum of first set of given number is " + givenNo1);
+        System.out.println("the sum of first set of given number is " + givenNo2);
+        int result = sum(5); //recursion method
+        System.out.println(result);
+
+    }
+    // the syntax is that the method should be given parameters & then it must be called out in the main class
+    public static void myMethod() {
+    }
+    public static void myMethod(String person, int age) {
+        System.out.println("He is " + person + " and about " + age + " years old!");
+    }
+    public static void secondMethod() {
+    }
+    public static void secondMethod(String car, Long amount) {
+        System.out.println("The car named " + car + " is very costly, He modified it for $" + amount);
+    }
+    public static int plusMethod(int x, int y) {
+        return x + y;
+    }
+    public static double plusMethod(double x, double y) {
+        return x + y;
+//Recursion is used to add a sequent range of numbers
+    }
+    public static int sum(int k) {
+        if (k > 0) {
+            return k + sum(k - 1);
+        } else {
+            return 0;
         }
     }
+}
