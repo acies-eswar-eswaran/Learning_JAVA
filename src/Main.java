@@ -1,4 +1,61 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.*;
+//import java.util.*; //imports all classes in java.util package
+
 public class Main {
+    public static void myMethod() {
+    }
+
+    public static void myMethod(String person, int age) {
+        System.out.println("He is " + person + " and about " + age + " years old!");
+    }
+
+    public static void secondMethod() {
+    }
+
+    public static void secondMethod(String car, Long amount) {
+        System.out.println("The car named " + car + " is very costly, He modified it for $" + amount);
+    }
+
+    public static int plusMethod(int x, int y) {
+        return x + y;
+    }
+
+    public static double plusMethod(double x, double y) {
+        return x + y;
+//Recursion is used to add a sequent range of numbers
+    }
+    public static int sum(int k) {
+        if (k > 0) {
+            return k + sum(k - 1);
+        } else {
+            return 0;
+        }
+    }
+    public static int boxVolume(int length, int breadth, int height) {
+        int vol;
+        vol = length * breadth * height;
+        return vol;
+    }
+    int x = 7;
+    //Class method
+    static void myClassMethod() {
+        System.out.println("How you doin?");
+    }
+//  Exception
+    static void checkAge(int age) {  //created a checkAge method in main class
+        if (age < 18) {
+            throw new ArithmeticException("You cant vote since the eligibility age is 18."); //this would be popped up
+            //as an error after execution at the end, since the age given in main method is less than 18
+        }
+        else {
+            System.out.println("You are now eligible to vote.");
+        }
+    }
+
+    //  class code ends here
+
     public static void main(String[] args) {
 //  Assigning string type value to a variable
         String myName = "Eswar";
@@ -201,42 +258,156 @@ public class Main {
         for (int i = 1; i < bikes.length; i++) {
             System.out.println(bikes[i]);
         }
-        myMethod();  //method should be called in main class, Hence jumped out of the main method
+        //method should be called in main class, Hence jumped out of the main method
         myMethod("Eswar", 20);
         myMethod("Henry", 45);
         secondMethod();
         secondMethod("Rolls Royce", 500000000L);
         int givenNo1 = plusMethod(3, 9);
         double givenNo2 = plusMethod(8.6, 5.2);
-        System.out.println("the sum of first set of given number is " + givenNo1);
-        System.out.println("the sum of first set of given number is " + givenNo2);
+        System.out.println("The sum of first set of given number is " + givenNo1);
+        System.out.println("The sum of first set of given number is " + givenNo2);
         int result = sum(5); //recursion method
         System.out.println(result);
+        System.out.println(boxVolume(10, 5, 3));
+//   Continuing Class & objects since it must be written in static main
+        Main myObj = new Main();
+        System.out.println(myObj.x);
+//        Calling class method
+        myClassMethod();
+        {
+            Scanner newObj;
+            newObj = new Scanner(System.in);
+            System.out.println("Enter your Username to view the rest");
 
-    }
-    // the syntax is that the method should be given parameters & then it must be called out in the main class
-    public static void myMethod() {
-    }
-    public static void myMethod(String person, int age) {
-        System.out.println("He is " + person + " and about " + age + " years old!");
-    }
-    public static void secondMethod() {
-    }
-    public static void secondMethod(String car, Long amount) {
-        System.out.println("The car named " + car + " is very costly, He modified it for $" + amount);
-    }
-    public static int plusMethod(int x, int y) {
-        return x + y;
-    }
-    public static double plusMethod(double x, double y) {
-        return x + y;
-//Recursion is used to add a sequent range of numbers
-    }
-    public static int sum(int k) {
-        if (k > 0) {
-            return k + sum(k - 1);
-        } else {
-            return 0;
+            String userName = newObj.nextLine();
+            System.out.println("Username is: " + userName);
         }
+//        Java Date used - import java.time.LocalDate;
+        LocalDate dateObj = LocalDate.now(); // Create a date object
+        System.out.println(dateObj); // Display the current date
+//        Java time used - import java.time.LocalTime;
+        LocalTime timeObj = LocalTime.now(); //create a time object
+        System.out.println(timeObj);
+//        Java ArrayList - imported the arraylist class
+        ArrayList<String> soap = new ArrayList<String>();
+        soap.add("Liril");
+        soap.add("Dove");
+        soap.add("Hammam");
+        System.out.println(soap);
+        System.out.println(soap.get(0));
+        System.out.println(soap.set(0, "Rexona"));
+        System.out.println(soap.remove(0));
+        System.out.println(soap.size());
+        for (int k = 0; k < soap.size(); k++) {
+            System.out.println(soap.get(k)); //doesn't print liril since the 0th index is removed
+        }
+//        Java linkedList - Imported the linkedlist class
+        LinkedList<String> sameSoaps = new LinkedList<String>();
+        sameSoaps.add("Liril");
+        sameSoaps.add("Dove");
+        sameSoaps.add("Hammam");
+        sameSoaps.add("Rexona");
+        //using methods in linked lists
+//        sameSoaps.addFirst()	- Adds item at the beginning of the list.
+//        sameSoaps.addLast()	    - Add an item at the end of the list
+//        sameSoaps.removeFirst()	- Removes an item at the beginning of the list.
+//        sameSoaps.removeLast()	- Remove an item at the end of the list
+//        sameSoaps.getFirst()	- Gets the item from the beginning of the list.
+//        sameSoaps.getLast()	    - Get an item from the end of the list
+        System.out.println(sameSoaps);
+//         Create a HashMap object called capitalCities (String, String)
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+//         Add keys and values (Country, City)
+        capitalCities.put("TamilNadu", "Chennai");
+        capitalCities.put("AndhraPradesh", "Amaravati");
+        capitalCities.put("Telangana", "Hyderabad");
+        capitalCities.put("Karnataka", "Bangalore");
+        System.out.println(capitalCities);
+//
+        HashMap<String, Integer> student = new HashMap<String, Integer>();
+
+
+        // Add keys and values (Name, Age)
+        student.put("Badal", 32);
+        student.put("Prem", 30);
+        student.put("Vishan", 33);
+
+        for (String i : student.keySet()) {
+            System.out.println("key: " + i + " value: " + student.get(i));
+        }
+        // Create a HashSet object called numbers
+        HashSet<Integer> numbers = new HashSet<Integer>();
+
+        // Add values to the set
+        numbers.add(6);
+        numbers.add(9);
+        numbers.add(3);
+
+        // Show which numbers between 1 and 10 are in the set
+        for (int i = 1; i <= 10; i++) {
+            if (numbers.contains(i)) {
+                System.out.println(i + " was found in the set.");
+            } else {
+                System.out.println(i + " was not found in the set.");
+            }
+        }
+
+//        iterating list
+        ArrayList<Integer> hats = new ArrayList<Integer>();
+        // Inserting elements into list
+        hats.add(2);
+        hats.add(4);
+        hats.add(6);
+        hats.add(8);
+        hats.add(10);
+//        Iterating
+        System.out.println("With for loop");
+        for (int i = 0; i < hats.size() - 1; i++) { // used -1 to show the difference between for & for each
+            // that for is used when the size is known until which the list should iterate
+            System.out.print(hats.get(i) + " ");
+        }
+        System.out.println("\nWith for each");
+        for (int i : hats) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\nwith while loop");
+        int l = 0;
+        while (l < hats.size()) {
+            System.out.print(hats.get(l));
+            l++;
+        }
+        System.out.println("\nusing iterator");
+        Iterator<Integer> loop = hats.iterator();
+        while (loop.hasNext()) {
+            System.out.println(loop.next());
+        }
+//  Wrapper classes (Primitive to object & vice versa)
+        int snake = 15;
+        double bat = 30.79;
+        Integer mySnake = snake; //Converting primitives into objects
+        Double myBat = bat;
+        System.out.println("printing objects values");
+        System.out.println(mySnake);
+        System.out.println(myBat);
+        int intvalue = snake; //converting objects back to primitives
+        double doublevalue = bat;
+        System.out.println("Printing primitive values");
+        System.out.println("int value : " + intvalue);
+        System.out.println("double value : " + doublevalue);
+//  Exception
+        try {
+             int[] myNumbers = {1, 2, 3};
+             System.out.println(myNumbers[10]);
+        }
+        catch (Exception e) {
+                             System.out.println("Something went wrong.");
+        }
+        finally {
+                 System.out.println("The 'try catch' is finished.");
+        }
+
+            //using throw keyword
+        checkAge(12); //calling the checkAge method(throw keyword)
     }
 }
